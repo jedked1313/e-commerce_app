@@ -24,29 +24,23 @@ class LanguageButton extends GetView<LocaleContoller> {
         Get.back();
       },
       child: Container(
-        padding: const EdgeInsets.all(4),
+        padding: const EdgeInsets.all(7),
         height: Get.height / 5.5,
         width: Get.width / 2.5,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(6),
             border: Border.all(color: AppColor.primaryColor, width: 2)),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: ClipRRect(
-                  borderRadius: BorderRadius.circular(6),
-                  child: Image.asset(
-                    image,
-                  )),
-            ),
-            const SizedBox(
-              height: 15,
-            ),
+            ClipRRect(
+                borderRadius: BorderRadius.circular(6),
+                child: Image.asset(
+                  image,
+                )),
             Text(
               title,
-              style: const TextStyle(fontWeight: FontWeight.bold),
+              style: Theme.of(context).textTheme.headlineSmall,
             )
           ],
         ),

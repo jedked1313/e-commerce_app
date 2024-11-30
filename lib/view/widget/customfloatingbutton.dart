@@ -9,16 +9,15 @@ class CustomFloatingButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
-      
-        backgroundColor: AppColor.white,
-        onPressed: () {
-          Get.toNamed(AppRoute.language);
-        },
-        child: const Icon(
-          Icons.outlined_flag_rounded,
-          size: 50,
-          color: AppColor.primaryColor,
-        ),
-      );
+      backgroundColor: AppColor.white,
+      onPressed: () {
+        Get.toNamed(AppRoute.language);
+      },
+      child: const Icon(
+        Icons.outlined_flag_rounded,
+        size: 50,
+        color: AppColor.primaryColor,
+      ),
+    );
   }
 }

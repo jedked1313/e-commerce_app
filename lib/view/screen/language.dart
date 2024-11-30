@@ -1,7 +1,6 @@
 import 'package:e_commerce/core/constant/color.dart';
 import 'package:flutter/material.dart';
 import 'package:e_commerce/core/constant/imageassets.dart';
-import 'package:e_commerce/view/widget/appbar.dart';
 import 'package:e_commerce/view/widget/language/languagebutton.dart';
 import 'package:get/get_utils/get_utils.dart';
 
@@ -11,19 +10,17 @@ class Language extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(
-        title: "language".tr,
-      ),
+      appBar: AppBar(title: Text("language".tr)),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               "choose_lang".tr,
-              style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 22,
-                  color: AppColor.primaryColor),
+              style: Theme.of(context)
+                  .textTheme
+                  .headlineSmall!
+                  .copyWith(color: AppColor.primaryColor),
             ),
             const SizedBox(
               height: 22,

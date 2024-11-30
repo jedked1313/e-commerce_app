@@ -27,7 +27,8 @@ class MyTranslation extends Translations {
           "didnt_receive": "لم تتلقى الرمز ؟ ",
           "send_again": " ارسال الرمز مجددا",
           "submit": "إرسال",
-          "we_sent": "لقد ارسلنا رمزا الى email@gmail.com, يرجى إدخال الرمز",
+          "we_sent": "لقد ارسلنا رمزا الى ",
+          "we_sent_2": ", يرجى إدخال الرمز.",
           "check_email": "تحقق من بريدك الإلكتروني",
           "success": "تم بنجاح",
           "the_operation": "تم الإنتهاء من العملية بنجاح",
@@ -64,7 +65,8 @@ class MyTranslation extends Translations {
           "characters": "احرف",
           "language": "اللغة",
           "success_account": "تم إنشاء حسابك بنجاح.",
-          "success_reset_password": "تم اعادة تعيين كلمة المرور الخاصة بك بنجاح",
+          "success_reset_password":
+              "تم اعادة تعيين كلمة المرور الخاصة بك بنجاح",
           // ---------- Auth ---------- //
         },
         "en": {
@@ -91,8 +93,8 @@ class MyTranslation extends Translations {
           "didnt_receive": "Didn't receive the code ? ",
           "send_again": " Send it again",
           "submit": "Submit",
-          "we_sent":
-              "We sent a code to email@gmail.com, Please enter the digit code.",
+          "we_sent": "We sent a code to ",
+          "we_sent_2": ", Please enter the digit code.",
           "check_email": "Check Your Email",
           "success": "Success",
           "the_operation": "The operation was completed successfully",
@@ -118,9 +120,9 @@ class MyTranslation extends Translations {
           "please_enter": "Please enter your data to continue",
           "forget": "Forgot password ?",
           "no_worries": "No worries, we'll send you reset instructions",
-          "verify_email": "Verify Your Email",
+          "confirm_email": "Confirm Your Email",
           "please_enter_digits":
-              "Please enter the 6 digits code sent to email@gmail.com",
+              "Please enter the 6 digits code sent to ",
           "cant_be_empty": "This field can't be empty",
           "invalid_username": "Invalid Username",
           "invalid_email": "Invalid Email Address",
@@ -129,7 +131,8 @@ class MyTranslation extends Translations {
           "characters": "characters",
           "language": "Language",
           "success_account": "Your account has been created successfully.",
-          "success_reset_password": "Your Password has been reseted successfully.",
+          "success_reset_password":
+              "Your Password has been reseted successfully.",
           // ---------- Auth ---------- //
         }
       };

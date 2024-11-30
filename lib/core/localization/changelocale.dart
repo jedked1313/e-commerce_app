@@ -13,6 +13,17 @@ class LocaleContoller extends GetxController {
     Get.updateLocale(locale);
   }
 
+    // Change Font Family based on choosen language
+  String chooseFontFamily() {
+    if (myServices.sharedPreferences.getString("langcode") == "ar") {
+      // For Arabic
+      return "Rubik";
+    } else {
+      // For others
+      return "Mulish";
+    }
+  }
+
   @override
   void onInit() {
     // Display selected language, if there is no selected language display device language

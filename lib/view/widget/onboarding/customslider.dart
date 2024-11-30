@@ -24,7 +24,7 @@ class CustomOnBoardingSlider extends GetView<OnboardingController> {
                   alignment: onBoardingList[i].style!["alignment"],
                   children: [
                     SizedBox(
-                      height: Get.height / 3,
+                      height: Get.height / 2.9,
                       width: Get.width,
                       child: Image.asset(
                         fit: BoxFit.fill,
@@ -43,20 +43,27 @@ class CustomOnBoardingSlider extends GetView<OnboardingController> {
                       child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("onboarding_heading".tr,
-                                style: TextStyle(
-                                  fontSize: 25,
-                                  color: onBoardingList[i].style!["color-1"],
-                                )),
+                            Text(
+                              "onboarding_heading".tr,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headlineSmall!
+                                  .copyWith(
+                                      color:
+                                          onBoardingList[i].style!["color-1"]),
+                            ),
                             Divider(
                               height: 20,
                               color: onBoardingList[i].style!["color-1"],
                             ),
                             Text(
                               "onboarding_subtitle".tr,
-                              style: TextStyle(
-                                  fontSize: 15,
-                                  color: onBoardingList[i].style!["color-2"]),
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyLarge!
+                                  .copyWith(
+                                      color:
+                                          onBoardingList[i].style!["color-2"]),
                             )
                           ]),
                     ),

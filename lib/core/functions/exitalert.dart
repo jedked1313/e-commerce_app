@@ -9,12 +9,12 @@ void exitAlert(context) {
       actions: [
         CustomButton(
             text: "Yes",
-            onPress: () {
+            onPressed: () {
               SystemNavigator.pop();
             }),
         CustomButton(
             text: "Cancel",
-            onPress: () {
+            onPressed: () {
               Get.back();
             }),
       ]);

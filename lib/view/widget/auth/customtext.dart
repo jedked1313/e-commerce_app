@@ -1,8 +1,8 @@
 import 'package:e_commerce/core/constant/color.dart';
 import 'package:flutter/material.dart';
 
-class CustomTextSigning extends StatelessWidget {
-  const CustomTextSigning(
+class CustomText extends StatelessWidget {
+  const CustomText(
       {super.key,
       required this.titleOne,
       required this.titleTwo,

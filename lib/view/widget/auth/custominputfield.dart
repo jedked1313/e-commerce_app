@@ -10,13 +10,15 @@ class CustomInputField extends StatelessWidget {
       required this.controller,
       this.obscureText,
       this.onTapShow,
-      required this.valid});
+      required this.valid,
+      this.canCopyPaste});
   final IconData icon;
   final String? hint;
   final String label;
   final TextEditingController? controller;
   final String? Function(String?) valid;
   final bool? obscureText;
+  final bool? canCopyPaste;
   final Function()? onTapShow;
 
   @override
@@ -36,6 +38,7 @@ class CustomInputField extends StatelessWidget {
           Container(
             padding: const EdgeInsets.symmetric(vertical: 8),
             child: TextFormField(
+              enableInteractiveSelection: canCopyPaste,
               validator: valid,
               obscureText:
                   obscureText == null || obscureText == false ? false : true,

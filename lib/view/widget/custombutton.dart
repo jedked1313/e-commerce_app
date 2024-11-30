@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton(
-      {super.key, this.style, required this.text, required this.onPress});
+      {super.key, this.style, required this.text, required this.onPressed});
   final String text;
   final ButtonStyle? style;
-  final void Function()? onPress;
+  final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class CustomButton extends StatelessWidget {
                 EdgeInsets.symmetric(vertical: 20)),
             backgroundColor:
                 const WidgetStatePropertyAll(AppColor.primaryColor)),
-        onPressed: onPress,
+        onPressed: onPressed,
         child: Text(
           text,
           style: Theme.of(context)

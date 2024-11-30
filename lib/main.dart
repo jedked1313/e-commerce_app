@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:e_commerce/bindings/initialbinding.dart';
 import 'package:e_commerce/routes.dart';
-import 'package:e_commerce/data/datasource/static/static.dart';
 import 'package:e_commerce/core/services/services.dart';
 import 'package:e_commerce/core/constant/color.dart';
 import 'package:e_commerce/core/localization/changelocale.dart';
@@ -31,11 +31,10 @@ class MyApp extends StatelessWidget {
             return const Icon(Icons.arrow_back_ios_new_rounded);
           },
         ),
-        fontFamily: (myServices.sharedPreferences.getString("langcode") == "ar")
-            ? "Rubik" // For Arabic language
-            : "Mulish", // For others
+        fontFamily: contoller.chooseFontFamily(),
         useMaterial3: true,
       ),
+      initialBinding: InitialBindings(),
       getPages: routes,
     );
   }

@@ -77,6 +77,7 @@ dependencies:
   responsive_builder:
   image_pickers:
   flutter_otp_text_field: ^1.2.0
+  lottie:
 
 dev_dependencies:
   flutter_test:
@@ -101,18 +102,9 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/onboarding-1.png
-    - assets/images/onboarding-2.png
-    - assets/images/onboarding-3.png
-    - assets/images/onboarding-4.png # Not Used
-    - assets/images/wave-1.png
-    - assets/images/wave-2.png
-    - assets/images/wave-3.png
-    - assets/images/arabic.png
-    - assets/images/english.png
-    - assets/images/google.png
-    - assets/images/apple.png
-    - assets/images/facebook.png
+    - assets/images/
+    # Lottie Assets
+    - assets/lottie/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

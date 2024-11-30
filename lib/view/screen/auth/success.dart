@@ -10,7 +10,7 @@ class Success extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final text = Get.arguments;
+    final text = Get.arguments['success_text'];
     return Scaffold(
       body: Center(
         child: Column(
@@ -34,8 +34,13 @@ class Success extends StatelessWidget {
             SizedBox(
               width: Get.width / 1.5,
               child: CustomButton(
-                  onPress: () {
-                    Get.offAllNamed(AppRoute.login);
+                  onPressed: () {
+                    // If user cames from ConfirmEmail() redirect to Home(), VerifyCode() redirect to Login()
+                    if (Get.arguments['from_confirm'] == 1) {
+                      Get.offAllNamed(AppRoute.home);
+                    } else {
+                      Get.offAllNamed(AppRoute.login);
+                    }
                   },
                   text: "continue".tr),
             ),

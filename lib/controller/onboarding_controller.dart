@@ -11,7 +11,7 @@ class OnboardingController extends GetxController {
   next() {
     Get.offNamed(AppRoute.login);
     // Onboarding screen will not be displeyed after pressing continue button
-    myServices.sharedPreferences.setBool("onboarding", true);
+    myServices.sharedPreferences.setInt("step", 1);
   }
 
   onPageChange(int val) {

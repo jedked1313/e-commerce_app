@@ -1,4 +1,6 @@
+import 'package:e_commerce/core/class/statusrequests.dart';
 import 'package:e_commerce/core/constant/routes.dart';
+import 'package:e_commerce/view/widget/loading.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:e_commerce/core/functions/validinput.dart';
@@ -16,62 +18,73 @@ class ForgotPassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ForgotPasswordController controller = Get.put(ForgotPasswordController());
+    Get.put(ForgotPasswordController());
     return Scaffold(
       appBar: AppBar(),
-      body: ListView(
-        shrinkWrap: true,
-        padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 15),
-        children: [
-          CustomTitleAuth(title: "forget".tr, body: "no_worries".tr),
-          Form(
-            key: controller.formState,
-            child: CustomInputField(
-              valid: (value) {
-                return validInput(value!, 5, 20, "email");
-              },
-              icon: Icons.person_outline_rounded,
-              hint: "enter_email".tr,
-              label: "email".tr,
-              controller: controller.email,
-            ),
-          ),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 12),
-            child: CustomButton(
-              onPress: () {
-                controller.checkCode();
-              },
-              text: "submit".tr,
-            ),
-          ),
-          CustomDivider(text: "or".tr),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SocialMediaButton(image: AppImageAsset.facebook, onPress: () {}),
-              SocialMediaButton(image: AppImageAsset.google, onPress: () {}),
-              SocialMediaButton(image: AppImageAsset.apple, onPress: () {}),
-            ],
-          ),
-          Container(
-            margin: const EdgeInsets.symmetric(vertical: 15),
-            child: Text(
-              textAlign: TextAlign.center,
-              "dont_have".tr,
-              style: Theme.of(context).textTheme.bodyLarge,
-            ),
-          ),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 40),
-            child: CustomOutlineButton(
-              onPress: () {
-                Get.toNamed(AppRoute.signUp);
-              },
-              text: "sign_up".tr,
-            ),
-          ),
-        ],
+      body: GetBuilder<ForgotPasswordController>(
+        builder: (controller) => Center(
+          child: controller.statusRequests == StatusRequests.loading
+              ? const Loading()
+              : ListView(
+                  shrinkWrap: true,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 18, vertical: 15),
+                  children: [
+                    CustomTitleAuth(title: "forget".tr, body: "no_worries".tr),
+                    Form(
+                      key: controller.formState,
+                      child: CustomInputField(
+                        valid: (value) {
+                          return validInput(value!, 5, 20, "email");
+                        },
+                        icon: Icons.person_outline_rounded,
+                        hint: "enter_email".tr,
+                        label: "email".tr,
+                        controller: controller.email,
+                      ),
+                    ),
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 40, vertical: 12),
+                      child: CustomButton(
+                        onPressed: () {
+                          controller.emailExist();
+                        },
+                        text: "submit".tr,
+                      ),
+                    ),
+                    CustomDivider(text: "or".tr),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SocialMediaButton(
+                            image: AppImageAsset.facebook, onPress: () {}),
+                        SocialMediaButton(
+                            image: AppImageAsset.google, onPress: () {}),
+                        SocialMediaButton(
+                            image: AppImageAsset.apple, onPress: () {}),
+                      ],
+                    ),
+                    Container(
+                      margin: const EdgeInsets.symmetric(vertical: 15),
+                      child: Text(
+                        textAlign: TextAlign.center,
+                        "dont_have".tr,
+                        style: Theme.of(context).textTheme.bodyLarge,
+                      ),
+                    ),
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 40),
+                      child: CustomOutlineButton(
+                        onPress: () {
+                          Get.toNamed(AppRoute.signUp);
+                        },
+                        text: "sign_up".tr,
+                      ),
+                    ),
+                  ],
+                ),
+        ),
       ),
     );
   }
