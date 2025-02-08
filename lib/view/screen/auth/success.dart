@@ -19,7 +19,7 @@ class Success extends StatelessWidget {
             Container(
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(100),
-                  color: AppColor.primaryColor.withOpacity(0.2)),
+                  color: AppColor.primaryColor.withValues(alpha: 0.2)),
               child: Icon(
                 Icons.check_rounded,
                 color: AppColor.primaryColor,
@@ -37,7 +37,7 @@ class Success extends StatelessWidget {
                   onPressed: () {
                     // If user cames from ConfirmEmail() redirect to Home(), VerifyCode() redirect to Login()
                     if (Get.arguments['from_confirm'] == 1) {
-                      Get.offAllNamed(AppRoute.home);
+                      Get.offAllNamed(AppRoute.rootScreen);
                     } else {
                       Get.offAllNamed(AppRoute.login);
                     }

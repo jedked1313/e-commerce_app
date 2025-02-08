@@ -3,10 +3,15 @@ import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton(
-      {super.key, this.style, required this.text, required this.onPressed});
+      {super.key,
+      this.style,
+      required this.text,
+      required this.onPressed,
+      this.horizontalPadding});
   final String text;
   final ButtonStyle? style;
   final void Function()? onPressed;
+  final double? horizontalPadding;
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +20,8 @@ class CustomButton extends StatelessWidget {
             shape: WidgetStatePropertyAll<RoundedRectangleBorder>(
                 RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(14))),
-            padding: const WidgetStatePropertyAll(
-                EdgeInsets.symmetric(vertical: 20)),
+            padding: WidgetStatePropertyAll(
+                EdgeInsets.symmetric(vertical: 20, horizontal: horizontalPadding ?? 0)),
             backgroundColor:
                 const WidgetStatePropertyAll(AppColor.primaryColor)),
         onPressed: onPressed,

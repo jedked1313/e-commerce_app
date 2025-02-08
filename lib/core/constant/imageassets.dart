@@ -7,7 +7,6 @@ class AppImageAsset {
   static const String onBoardingImageOne = "$rootImage/onboarding-1.png";
   static const String onBoardingImageTwo = "$rootImage/onboarding-2.png";
   static const String onBoardingImageThree = "$rootImage/onboarding-3.png";
-  static const String onBoardingImageFour = "$rootImage/onboarding-4.png";
   static const String onBoardingWaveOne = "$rootImage/wave-1.png";
   static const String onBoardingWaveTwo = "$rootImage/wave-2.png";
   static const String onBoardingWaveThree = "$rootImage/wave-3.png";
@@ -26,4 +25,13 @@ class AppImageAsset {
   static const String noData = "$rootLottie/no_data.json";
   static const String noInternet = "$rootLottie/no_internet.json";
   static const String serverFailure = "$rootLottie/server_failure.json";
+
+  // Home
+  static const String banner = "$rootImage/discount-banner.png";
+
+  static const List itemImages = [
+    "$rootImage/onboarding-1.png",
+    "$rootImage/onboarding-2.png",
+    "$rootImage/onboarding-3.png",
+  ];
 }

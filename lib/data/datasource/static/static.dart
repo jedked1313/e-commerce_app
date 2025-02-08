@@ -1,5 +1,6 @@
 import 'package:e_commerce/core/constant/imageassets.dart';
 import 'package:e_commerce/core/constant/color.dart';
+import 'package:e_commerce/core/functions/translatedata.dart';
 import 'package:e_commerce/core/services/services.dart';
 import 'package:e_commerce/data/model/onboardingmodel.dart';
 import 'package:flutter/material.dart';
@@ -15,9 +16,8 @@ List<OnBoardingModel> onBoardingList = [
       style: {
         "color-1": AppColor.white,
         "color-2": AppColor.white,
-        "alignment": myServices.sharedPreferences.getString("langcode") == "ar"
-            ? AlignmentDirectional.topEnd
-            : AlignmentDirectional.topStart,
+        "alignment": translateData(
+            AlignmentDirectional.topEnd, AlignmentDirectional.topStart)
       },
       body: "lorem".tr),
   OnBoardingModel(
@@ -27,9 +27,8 @@ List<OnBoardingModel> onBoardingList = [
     style: {
       "color-1": AppColor.primaryColor,
       "color-2": Colors.black,
-      "alignment": myServices.sharedPreferences.getString("langcode") == "ar"
-          ? AlignmentDirectional.topEnd
-          : AlignmentDirectional.topStart,
+      "alignment": translateData(
+          AlignmentDirectional.topEnd, AlignmentDirectional.topStart)
     },
     body: "lorem".tr,
   ),
@@ -40,9 +39,8 @@ List<OnBoardingModel> onBoardingList = [
     style: {
       "color-1": AppColor.white,
       "color-2": AppColor.white,
-      "alignment": myServices.sharedPreferences.getString("langcode") == "ar"
-          ? AlignmentDirectional.topStart
-          : AlignmentDirectional.topEnd,
+      "alignment": translateData(
+          AlignmentDirectional.topStart, AlignmentDirectional.topEnd)
     },
     body: "lorem".tr,
   ),

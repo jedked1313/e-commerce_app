@@ -1,10 +1,12 @@
+import 'package:e_commerce/core/localization/arabic.dart';
+import 'package:e_commerce/core/localization/english.dart';
 import 'package:e_commerce/core/services/services.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class LocaleContoller extends GetxController {
   Locale? language;
-
+  Translations? translations;
   MyServices myServices = Get.find();
 
   changeLanguage(String lang) {
@@ -13,8 +15,17 @@ class LocaleContoller extends GetxController {
     Get.updateLocale(locale);
   }
 
-    // Change Font Family based on choosen language
-  String chooseFontFamily() {
+  // Select localization file
+  Translations selectLocalization() {
+    if (myServices.sharedPreferences.getString("langcode") == "ar") {
+      return Arabic();
+    } else {
+      return English();
+    }
+  }
+
+  // Change Font Family based on selected language
+  String selectFontFamily() {
     if (myServices.sharedPreferences.getString("langcode") == "ar") {
       // For Arabic
       return "Rubik";
@@ -31,7 +42,7 @@ class LocaleContoller extends GetxController {
     String? sharedPrefLang = myServices.sharedPreferences.getString("langcode");
     if (sharedPrefLang == "ar") {
       language = const Locale("ar");
-    } else if (sharedPrefLang == "e") {
+    } else if (sharedPrefLang == "en") {
       language = const Locale("en");
     } else {
       language = Locale(Get.deviceLocale!.languageCode);

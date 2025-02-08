@@ -13,7 +13,7 @@ class AppMiddleWare extends GetMiddleware {
   RouteSettings? redirect(String? route) {
     // If user loggedin redirect to home
     if (myServices.sharedPreferences.getInt("step") == 2) {
-      return const RouteSettings(name: AppRoute.home);
+      return const RouteSettings(name: AppRoute.rootScreen);
     }
     // Display OnBoarding only first time open app
     if (myServices.sharedPreferences.getInt("step") == 1) {

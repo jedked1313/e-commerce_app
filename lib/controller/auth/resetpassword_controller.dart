@@ -2,7 +2,7 @@ import 'package:e_commerce/core/class/statusrequests.dart';
 import 'package:e_commerce/core/constant/routes.dart';
 import 'package:e_commerce/core/functions/handlingdata_controller.dart';
 import 'package:e_commerce/data/datasource/static/remote/auth/resetpassword.dart';
-import 'package:e_commerce/view/widget/customdialog.dart';
+import 'package:e_commerce/view/widget/dialogs/serverfailuredialog.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -12,7 +12,7 @@ class ResetPasswordController extends GetxController {
   late TextEditingController password;
   late TextEditingController confirmPassword;
   bool obscureText = true;
-  StatusRequests? statusRequests;
+  StatusRequests statusRequests = StatusRequests.none;
   String? email;
 
   showPassword() {
@@ -25,27 +25,14 @@ class ResetPasswordController extends GetxController {
       statusRequests = StatusRequests.loading;
       // Refresh UI and Display loading
       update();
-      var response = await resetPasswordData.postData(email!, password.text);
+      var response =
+          await resetPasswordData.getResetPasswordData(email!, password.text);
       statusRequests = handlingData(response);
       if (statusRequests == StatusRequests.success) {
-        if (response['status'] == "success") {
-          Get.offAllNamed(AppRoute.success,
-              arguments: {"success_text": "success_reset_password".tr});
-        }
-      } else {
-        Get.dialog(
-          CustomDialog(
-            icon: Icons.not_interested_rounded,
-            iconColor: Colors.red,
-            title: "Failure",
-            content: "Server failure",
-            buttonTitle: "OK",
-            onConfirm: () {
-              Get.back();
-            },
-          ),
-        );
-        statusRequests == StatusRequests.failure;
+        Get.offAllNamed(AppRoute.success,
+            arguments: {"success_text": "success_reset_password".tr});
+      } else if (statusRequests == StatusRequests.failure) {
+        serverFailureDialog();
       }
       update();
     }

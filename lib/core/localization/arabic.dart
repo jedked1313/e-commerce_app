@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-class MyTranslation extends Translations {
+class Arabic extends Translations {
   @override
   Map<String, Map<String, String>> get keys => {
         "ar": {
@@ -13,11 +13,9 @@ class MyTranslation extends Translations {
           "purchase": "شراء عبر الانترنت !!",
           "track": "تتبع طلباتك !!",
           "get_order": "إحصل على طلباتك !!",
-          // ---------- onBoarding ---------- //
 
-          // ---------- Change Language ---------- //
-          "choose_lang": "-----------   اختر اللغة   -----------",
-          // ---------- Change Language ---------- //
+          // ---------- Language ---------- //
+          "choose_lang": "------   اختر اللغة   ------",
 
           // ---------- Auth ---------- //
           "rememer_me": "تذكرني",
@@ -54,9 +52,9 @@ class MyTranslation extends Translations {
           "please_enter": "الرجاء ادخال البيانات للمتابعة",
           "forget": "نسيت كلمة السر ؟",
           "no_worries": "لا تقلق, سوف نرسل لك تعليمات إعادة تعيين كلمة المرور",
-          "verify_email": "تأكيد البريد الإلكتروني",
+          "confirm_email": "تأكيد البريد الإلكتروني",
           "please_enter_digits":
-              "الرجاء إدخال الرمز المكون من 6 ارقام المرسل الى email@gmail.com",
+              "الرجاء إدخال الرمز المكون من 6 ارقام المرسل الى",
           "cant_be_empty": "هذا الحقل لا يمكن ان يكون فارغا",
           "invalid_username": "إسم مستخدم غير صالح",
           "invalid_email": "بريد إلكروني غير صالح",
@@ -67,73 +65,50 @@ class MyTranslation extends Translations {
           "success_account": "تم إنشاء حسابك بنجاح.",
           "success_reset_password":
               "تم اعادة تعيين كلمة المرور الخاصة بك بنجاح",
-          // ---------- Auth ---------- //
-        },
-        "en": {
-          // ---------- onBoarding ---------- //
-          "continue": "Continue",
-          "onboarding_heading": "eCommerce Shop",
-          "onboarding_subtitle": "Professional App for your eCommerce business",
-          "lorem":
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
-          "purchase": "Purchase Online !!",
-          "track": "Track order !!",
-          "get_order": "Get your order !!",
-          // ---------- onBoarding ---------- //
+          "password_not_match": "",
 
-          // ---------- Change Language ---------- //
-          "choose_lang": "------   Choose Language   ------",
-          // ---------- Change Language ---------- //
+          // ---------- Home ---------- //
+          "search": "البحث عن منتج",
+          "categories": "الفئات",
+          "hot": "اخر العروض",
+          "delivery": "عنوان التوصيل",
+          "address": "بريطانيا, لندن",
+          "seeall": "عرض الجميع",
+          "hot_sales": "أخر العروض",
 
-          // ---------- Auth ---------- //
-          "rememer_me": "Remember Me",
-          "login": "Log in",
-          "sign_up": "Sign Up",
-          "back_to_login": "Back to log in",
-          "didnt_receive": "Didn't receive the code ? ",
-          "send_again": " Send it again",
-          "submit": "Submit",
-          "we_sent": "We sent a code to ",
-          "we_sent_2": ", Please enter the digit code.",
-          "check_email": "Check Your Email",
-          "success": "Success",
-          "the_operation": "The operation was completed successfully",
-          "already_have": "Already have an account ?  ",
-          "or": "OR",
-          "password": "Password",
-          "confirm_password": "Confirm Password",
-          "confirm_your_password": "Confirm Your Password",
-          "enter_password": "Enter Your Password",
-          "username": "Username",
-          "enter_username": "Enter Your Username",
-          "email": "Email",
-          "enter_email": "Enter Your Email",
-          "signup_and_we": "Sign up and we will continue",
-          "let_get_start": "Let's Get Started",
-          "new_password": "New Password",
-          "at_least": "At least 8 digits",
-          "must_be": "Must be at least 8 characters",
-          "set_new_password": "Set New Password",
-          "dont_have": "Don't have an accunt ? ",
-          "forget_password": "Forget Your Password ?",
-          "welcome": "Welcome!",
-          "please_enter": "Please enter your data to continue",
-          "forget": "Forgot password ?",
-          "no_worries": "No worries, we'll send you reset instructions",
-          "confirm_email": "Confirm Your Email",
-          "please_enter_digits":
-              "Please enter the 6 digits code sent to ",
-          "cant_be_empty": "This field can't be empty",
-          "invalid_username": "Invalid Username",
-          "invalid_email": "Invalid Email Address",
-          "cant_be_less": "Can't be less then ",
-          "cant_be_larger": "Can't be larger then",
-          "characters": "characters",
-          "language": "Language",
-          "success_account": "Your account has been created successfully.",
-          "success_reset_password":
-              "Your Password has been reseted successfully.",
-          // ---------- Auth ---------- //
+          // ---------- Item Details ---------- //
+          "add_cart" : "اضف الى السلة",
+          "read_more" : " اقرأ المزيد \n",
+
+          // ---------- Widgets ---------- //
+          // Bottom Navigation Bar
+          "home": "الرئيسية",
+          "cart": "السلة",
+          "favorites": "المفضلة",
+          "profile": "الملف الشخصي",
+
+          // Buttons
+          "try_again": "      حاول مرة اخرى      ",
+
+          // Dialog Messages
+          "server_failure": "فشل في الخادم",
+          "we're_sorry":
+              "للاسف, لقد واجه الخادم خطأ ولم يتمكن من تلبية طلبك, يرجى التواصل مسؤول التطبيق.",
+          "ok": "حسنا",
+          "check_intenet": "تحقق من اتصالك بالإنترنت وحاول مرة اخرى",
+          "no_internet": "لا يوجد انترنت !",
+          "no_data": "لا يوجد بيانات !",
+          "warning": "تحذير",
+          "wrong_code": "رقم التأكيد غير صحيح !!",
+          "email_exists":
+              "هذا البريد موجود بالفعل !                              \n",
+          "account_created":
+              "تم إنشاء حسابك بنجاح, الرجاء تأكيد البريد الإلكتروني الخاص بك.",
+          "failure": "خطأ",
+          "incorrect_email": "كلمة السر او البريد الإلكتروني غير صحيح !",
+          "please_confirm":
+              "رجاء قم بتأكيد بريدك الإلكتروني \n بعدها يمكنك المتابعه",
+          "email_doesn't": "هذا البريد غير موجود !",
         }
       };
 }

@@ -6,35 +6,42 @@ class CustomInputField extends StatelessWidget {
       {super.key,
       required this.icon,
       this.hint,
-      required this.label,
+      this.label,
       required this.controller,
       this.obscureText,
       this.onTapShow,
       required this.valid,
-      this.canCopyPaste});
+      this.canCopyPaste,
+      this.textAlign,
+      this.bottomMargin});
   final IconData icon;
   final String? hint;
-  final String label;
+  final String? label;
+  final TextAlign? textAlign;
   final TextEditingController? controller;
   final String? Function(String?) valid;
   final bool? obscureText;
   final bool? canCopyPaste;
+  final double? bottomMargin;
   final Function()? onTapShow;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(bottom: 12),
+      padding: const EdgeInsets.all(5),
+      margin: EdgeInsets.only(bottom: bottomMargin ?? 12),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            label,
-            style: Theme.of(context)
-                .textTheme
-                .titleMedium!
-                .copyWith(fontWeight: FontWeight.w700),
-          ),
+          label != null
+              ? Text(
+                  label!,
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleMedium!
+                      .copyWith(fontWeight: FontWeight.w700),
+                )
+              : const SizedBox.shrink(), // Instead of null ^__^
           Container(
             padding: const EdgeInsets.symmetric(vertical: 8),
             child: TextFormField(
@@ -54,14 +61,15 @@ class CustomInputField extends StatelessWidget {
                             color: AppColor.grey,
                           ),
                         ),
-                  fillColor: AppColor.grey.shade200,
+                  fillColor: AppColor.ligthGrey,
                   filled: true,
                   errorStyle: Theme.of(context)
                       .textTheme
                       .bodyMedium!
                       .copyWith(color: Colors.red),
-                  enabledBorder:
-                      const OutlineInputBorder(borderSide: BorderSide.none),
+                  enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: BorderSide.none),
                   focusedBorder: OutlineInputBorder(
                       borderSide:
                           const BorderSide(color: AppColor.primaryColor),

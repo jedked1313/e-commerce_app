@@ -1,7 +1,11 @@
+import 'package:e_commerce/view/screen/categories.dart';
+import 'package:e_commerce/view/screen/favorites.dart';
+import 'package:e_commerce/view/screen/item_details.dart';
+import 'package:e_commerce/view/screen/items.dart';
+import 'package:e_commerce/view/screen/rootscreen.dart';
 import 'package:get/get.dart';
 import 'core/constant/routes.dart';
 import 'package:e_commerce/core/middleware/appmiddleware.dart';
-import 'package:e_commerce/view/screen/home.dart';
 import 'package:e_commerce/view/screen/onboarding.dart';
 import 'package:e_commerce/view/screen/language.dart';
 import 'package:e_commerce/view/screen/auth/login.dart';
@@ -21,7 +25,7 @@ import 'package:e_commerce/view/screen/auth/verifycode.dart';
 List<GetPage<dynamic>>? routes = [
   // =============== OnBoarding =============== //
   GetPage(
-      name: "/",
+      name: AppRoute.root,
       page: () => const OnBoarding(),
       middlewares: [AppMiddleWare()]),
 
@@ -36,5 +40,9 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoute.resetPassword, page: () => const ResetPassword()),
 
   // =============== Home =============== //
-  GetPage(name: AppRoute.home, page: () => const Home()),
+  GetPage(name: AppRoute.rootScreen, page: () => const RootScreen()),
+  GetPage(name: AppRoute.categories, page: () => const Categories()),
+  GetPage(name: AppRoute.items, page: () => const Items()),
+  GetPage(name: AppRoute.itemDetails, page: () => const ItemDetails()),
+  GetPage(name: AppRoute.favorites, page: () => const Favorites()),
 ];

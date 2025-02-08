@@ -31,37 +31,38 @@ class CustomDialog extends StatelessWidget {
       insetPadding: const EdgeInsets.symmetric(horizontal: 15),
       actionsPadding: const EdgeInsets.only(bottom: 10, left: 10, right: 10),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
-      contentPadding: const EdgeInsets.fromLTRB(
-          24, 5, 24, 50), // Defualt padding only change top
       icon: Container(
         padding: const EdgeInsets.all(20),
         decoration: BoxDecoration(
-          border:
-              Border.all(color: iconColor ?? AppColor.primaryColor, width: 5),
+          color: iconColor == null
+              ? AppColor.primaryColor.withValues(alpha: 0.4)
+              : iconColor!.withValues(alpha: 0.4),
           shape: BoxShape.circle,
         ),
         child: Icon(
           icon,
           color: iconColor ?? AppColor.primaryColor,
-          size: 80,
+          size: 65,
         ),
       ),
       title: Text(
         title,
-        style: Theme.of(context).textTheme.headlineMedium,
-        textAlign: TextAlign.start,
+        style: Theme.of(context).textTheme.titleLarge,
+        textAlign: TextAlign.center,
       ),
       content: SizedBox(
           width: Get.width,
-          child: Text(content, style: Theme.of(context).textTheme.titleMedium)),
+          child: Text(content,
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.titleSmall)),
       actions: [
         Row(
           children: [
             // Show Cancel button when passing onCancel() method, otherwise leave space
             onCancel != null
                 ? Expanded(
-                    child:
-                        CustomOutlineButton(text: "Cancel", onPress: onCancel))
+                    child: CustomOutlineButton(
+                        text: "cancel".tr, onPress: onCancel))
                 : const Spacer(),
             const SizedBox(
               width: 12,

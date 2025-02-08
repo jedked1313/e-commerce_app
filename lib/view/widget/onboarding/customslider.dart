@@ -1,5 +1,5 @@
 import 'package:e_commerce/controller/onboarding_controller.dart';
-import 'package:e_commerce/core/services/services.dart';
+import 'package:e_commerce/core/functions/translatedata.dart';
 import 'package:e_commerce/data/datasource/static/static.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -9,11 +9,8 @@ class CustomOnBoardingSlider extends GetView<OnboardingController> {
 
   @override
   Widget build(BuildContext context) {
-    MyServices myServices = Get.find();
     return PageView.builder(
-        reverse: myServices.sharedPreferences.getString("langcode") == "ar"
-            ? true
-            : false,
+        reverse: translateData(true, false),
         onPageChanged: (value) {
           controller.onPageChange(value);
         },
@@ -24,7 +21,7 @@ class CustomOnBoardingSlider extends GetView<OnboardingController> {
                   alignment: onBoardingList[i].style!["alignment"],
                   children: [
                     SizedBox(
-                      height: Get.height / 2.9,
+                      height: Get.height / 3.2,
                       width: Get.width,
                       child: Image.asset(
                         fit: BoxFit.fill,
@@ -34,12 +31,10 @@ class CustomOnBoardingSlider extends GetView<OnboardingController> {
                     Container(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 10, vertical: 5),
-                      margin:
-                          myServices.sharedPreferences.getString("langcode") ==
-                                  "ar"
-                              ? const EdgeInsets.only(right: 20, top: 115)
-                              : const EdgeInsets.only(left: 20, top: 115),
-                      width: Get.width / 1.7,
+                      margin: translateData(
+                          const EdgeInsets.only(right: 40, top: 115),
+                          const EdgeInsets.only(left: 20, top: 135)),
+                      width: Get.width / 1.5,
                       child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -47,7 +42,7 @@ class CustomOnBoardingSlider extends GetView<OnboardingController> {
                               "onboarding_heading".tr,
                               style: Theme.of(context)
                                   .textTheme
-                                  .headlineSmall!
+                                  .headlineMedium!
                                   .copyWith(
                                       color:
                                           onBoardingList[i].style!["color-1"]),
@@ -71,8 +66,8 @@ class CustomOnBoardingSlider extends GetView<OnboardingController> {
                 ),
                 Image.asset(
                   onBoardingList[i].image!,
-                  width: 400,
-                  height: 300,
+                  width: Get.width / 1.5,
+                  height: Get.height / 3,
                 ),
                 const SizedBox(
                   height: 20,

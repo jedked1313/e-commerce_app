@@ -5,8 +5,8 @@ class LoginData {
   LoginData(this.crud);
   Crud crud;
 
-  postData(String email, String password) async {
-    var response = await crud.postData(ApiLinks.login, {
+  getLoginData(String email, String password) async {
+    var response = await crud.requestData(ApiLinks.login, {
       "user_email": email,
       "user_password": password,
     });

@@ -5,8 +5,8 @@ class ForgotPasswordData {
   ForgotPasswordData(this.crud);
   Crud crud;
 
-  postData(String email) async {
-    var response = await crud.postData(ApiLinks.forgotPassword, {
+  getForgetPasswordData(String email) async {
+    var response = await crud.requestData(ApiLinks.forgotPassword, {
       "user_email": email,
     });
     return response.fold((l) => l, (r) => r);

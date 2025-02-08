@@ -5,8 +5,8 @@ class VerifyCodeData {
   VerifyCodeData(this.crud);
   Crud crud;
 
-  postData(String email,String verifyCode) async {
-    var response = await crud.postData(ApiLinks.verifyCode, {
+  getVerifyCodeData(String email,String verifyCode) async {
+    var response = await crud.requestData(ApiLinks.verifyCode, {
       "user_email": email,
       "user_verifycode": verifyCode,
     });
