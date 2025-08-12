@@ -3,6 +3,7 @@ import 'package:e_commerce/view/screen/favorites.dart';
 import 'package:e_commerce/view/screen/item_details.dart';
 import 'package:e_commerce/view/screen/items.dart';
 import 'package:e_commerce/view/screen/rootscreen.dart';
+import 'package:e_commerce/view/screen/settings.dart';
 import 'package:get/get.dart';
 import 'core/constant/routes.dart';
 import 'package:e_commerce/core/middleware/appmiddleware.dart';
@@ -45,4 +46,5 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoute.items, page: () => const Items()),
   GetPage(name: AppRoute.itemDetails, page: () => const ItemDetails()),
   GetPage(name: AppRoute.favorites, page: () => const Favorites()),
+  GetPage(name: AppRoute.settings, page: () => const Settings()),
 ];

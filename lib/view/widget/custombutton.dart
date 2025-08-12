@@ -5,11 +5,13 @@ class CustomButton extends StatelessWidget {
   const CustomButton(
       {super.key,
       this.style,
+      this.buttonColor,
       required this.text,
       required this.onPressed,
       this.horizontalPadding});
   final String text;
   final ButtonStyle? style;
+  final Color? buttonColor;
   final void Function()? onPressed;
   final double? horizontalPadding;
 
@@ -20,10 +22,10 @@ class CustomButton extends StatelessWidget {
             shape: WidgetStatePropertyAll<RoundedRectangleBorder>(
                 RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(14))),
-            padding: WidgetStatePropertyAll(
-                EdgeInsets.symmetric(vertical: 20, horizontal: horizontalPadding ?? 0)),
+            padding: WidgetStatePropertyAll(EdgeInsets.symmetric(
+                vertical: 20, horizontal: horizontalPadding ?? 0)),
             backgroundColor:
-                const WidgetStatePropertyAll(AppColor.primaryColor)),
+                WidgetStatePropertyAll(buttonColor ?? AppColor.primaryColor)),
         onPressed: onPressed,
         child: Text(
           text,

@@ -12,6 +12,7 @@ class CustomDialog extends StatelessWidget {
     required this.title,
     required this.content,
     this.iconColor,
+    this.buttonColor,
     this.onConfirm,
     this.onCancel,
     required this.buttonTitle,
@@ -19,6 +20,7 @@ class CustomDialog extends StatelessWidget {
   final BuildContext? context;
   final IconData icon;
   final Color? iconColor;
+  final Color? buttonColor;
   final void Function()? onConfirm;
   final void Function()? onCancel;
   final String title;
@@ -69,6 +71,7 @@ class CustomDialog extends StatelessWidget {
             ),
             Expanded(
               child: CustomButton(
+                buttonColor: buttonColor ?? AppColor.primaryColor,
                 text: buttonTitle,
                 onPressed: onConfirm,
               ),

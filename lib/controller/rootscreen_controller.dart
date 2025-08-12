@@ -1,5 +1,6 @@
+import 'package:e_commerce/view/screen/cart.dart';
 import 'package:e_commerce/view/screen/home.dart';
-import 'package:e_commerce/view/screen/language.dart';
+import 'package:e_commerce/view/screen/notifications.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -8,8 +9,8 @@ class RootScreenController extends GetxController {
 
   List<Widget> screens = [
     const Home(),
-    const Center(child: Text("Cart")),
-    const Language(),
+    const Cart(),
+    const Notifications(),
     const Center(child: Text("Profile")),
   ];
 

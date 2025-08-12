@@ -22,6 +22,7 @@ class ForgotPassword extends StatelessWidget {
       body: GetBuilder<ForgotPasswordController>(
         builder: (controller) => Center(
           child: HandlingDataIcons(
+            tryAgain: () => controller.emailExist(),
             isAuthRequest: true,
             statusRequests: controller.statusRequests,
             defaultWidget: ListView(

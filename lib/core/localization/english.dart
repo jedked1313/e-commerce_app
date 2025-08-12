@@ -15,7 +15,7 @@ class English extends Translations {
           "get_order": "Get your order !!",
 
           // ---------- Change Language ---------- //
-          "choose_lang": "------   Choose Language   ------",
+          "choose_lang": "----- Choose Language -----",
 
           // ---------- Auth ---------- //
           "rememer_me": "Remember Me",
@@ -53,7 +53,7 @@ class English extends Translations {
           "forget": "Forgot password ?",
           "no_worries": "No worries, we'll send you reset instructions",
           "confirm_email": "Confirm Your Email",
-          "please_enter_digits": "Please enter the 6 digits code sent to ",
+          "please_enter_digits": "Please enter the 5 digits code sent to ",
           "cant_be_empty": "This field can't be empty",
           "invalid_username": "Invalid Username",
           "invalid_email": "Invalid Email Address",
@@ -76,14 +76,14 @@ class English extends Translations {
           "hot_sales": "Hot Sales",
 
           // ---------- Item Details ---------- //
-          "add_cart" : "Add to Cart",
-          "read_more" : " Read More \n",
+          "add_cart": "Add to Cart",
+          "read_more": " Read More \n",
 
           // ---------- Widgets ---------- //
           // Bottom Navigation Bar
           "home": "Home",
           "cart": "Cart",
-          "favorites": "Favorites",
+          "notifications": "Notifications",
           "profile": "Profile",
 
           // Buttons

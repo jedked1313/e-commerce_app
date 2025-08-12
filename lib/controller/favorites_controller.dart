@@ -8,8 +8,8 @@ import 'package:get/get.dart';
 class FavoritesController extends GetxController {
   FavoritesData favoriteData = FavoritesData(Get.find());
   late StatusRequests statusRequests;
-  List favorites = []; // Used for favorites screen
-  Map isFavorite = {}; // Used for Home and items screen
+  List favorites = []; // List to hold favorite items
+  Map isFavorite = {}; // Used to check if an item is favorite or not
 
   getFavorites() async {
     statusRequests = StatusRequests.loading;

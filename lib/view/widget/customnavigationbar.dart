@@ -17,22 +17,21 @@ class CustomNavigationBar extends StatelessWidget {
           controller.changeScreen(value);
         },
         iconSize: 30,
-        selectedFontSize: 18,
-        unselectedFontSize: 14,
+        selectedFontSize: 14,
+        unselectedFontSize: 12,
         selectedItemColor: AppColor.primaryColor,
         unselectedItemColor: AppColor.grey,
         items: [
           BottomNavigationBarItem(
-            icon: const Icon(Icons.home_rounded),
+            icon: const Icon(CupertinoIcons.house_fill),
             label: "home".tr,
           ),
           BottomNavigationBarItem(
               icon: const Icon(CupertinoIcons.cart), label: "cart".tr),
           BottomNavigationBarItem(
-              icon: const Icon(CupertinoIcons.settings), label: "settings".tr),
+              icon: const Icon(CupertinoIcons.bell), label: "notifications".tr),
           BottomNavigationBarItem(
-              icon: const Icon(CupertinoIcons.profile_circled),
-              label: "profile".tr)
+              icon: const Icon(CupertinoIcons.person), label: "profile".tr)
         ],
       ),
     );

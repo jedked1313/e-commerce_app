@@ -19,12 +19,10 @@ ThemeData appTheme = ThemeData(
   colorSchemeSeed: AppColor.primaryColor,
   actionIconTheme: ActionIconThemeData(backButtonIconBuilder: (context) {
     return const CustomIconButton(
-        color: AppColor.white,
-        padding: 5,
+        color: Colors.transparent,
         icon: Icon(
           Icons.arrow_back_ios_new_rounded,
           color: AppColor.black,
-          size: 25,
         ));
   }),
   fontFamily: controller.selectFontFamily(),

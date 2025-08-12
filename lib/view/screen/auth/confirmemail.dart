@@ -19,6 +19,7 @@ class ConfirmEmail extends StatelessWidget {
       body: GetBuilder<ConfirmEmailController>(
         builder: (controller) => Center(
           child: HandlingDataIcons(
+            tryAgain: () => controller.goToLogin(),
             isAuthRequest: true,
             statusRequests: controller.statusRequests,
             defaultWidget: ListView(
@@ -53,7 +54,7 @@ class ConfirmEmail extends StatelessWidget {
                   child: CustomText(
                       titleOne: "didnt_receive".tr,
                       titleTwo: "send_again".tr,
-                      onTap: () {}),
+                      onTap: () => controller.resendCode()),
                 ),
                 CustomDivider(text: "back_to_login".tr),
                 Container(

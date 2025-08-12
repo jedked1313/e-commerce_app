@@ -58,10 +58,8 @@ class HomeController extends GetxController {
     update();
   }
 
-  logout() {
-    myServices.sharedPreferences.clear();
-    myServices.sharedPreferences.setInt("step", 1);
-    Get.offAllNamed(AppRoute.login);
+  goToSettings() {
+    Get.toNamed(AppRoute.settings);
   }
 
   @override

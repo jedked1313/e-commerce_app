@@ -28,8 +28,7 @@ class FavoriteItem extends GetView<FavoritesController> {
         controller.goToItemDetails(itemsModel);
       },
       child: Container(
-        height: 150,
-        padding: const EdgeInsets.only(right: 5),
+        height: Get.height * 0.15,
         decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(
@@ -42,55 +41,70 @@ class FavoriteItem extends GetView<FavoritesController> {
             borderRadius: BorderRadius.circular(14),
             color: AppColor.white),
         child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Container(
-              decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(12),
-                      topLeft: Radius.circular(12)),
-                  color: AppColor.primaryColor.withValues(alpha: 0.5)),
-              child: ExtendedImage.network(
-                "${ApiLinks.root}${favoritesModel.images!.first.image}",
-                cache: true,
-                fit: BoxFit.contain,
-                height: 150,
-                width: 120,
-              )),
-          Padding(
-            padding: translateData(const EdgeInsets.only(right: 12, bottom: 5),
-                const EdgeInsets.only(left: 12, bottom: 5)),
-            child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    width: 160,
-                    child: Text(
-                      translateData(favoritesModel.nameAr, favoritesModel.name),
-                      style: Theme.of(context).textTheme.titleLarge,
-                      overflow: TextOverflow.ellipsis,
+          Expanded(
+            flex: 2,
+            child: Container(
+                decoration: BoxDecoration(
+                    borderRadius: translateData(
+                        const BorderRadius.only(
+                            topRight: Radius.circular(12),
+                            bottomRight: Radius.circular(12)),
+                        const BorderRadius.only(
+                            topLeft: Radius.circular(12),
+                            bottomLeft: Radius.circular(12))),
+                    color: AppColor.primaryColor.withValues(alpha: 0.5)),
+                child: ExtendedImage.network(
+                  "${ApiLinks.root}${favoritesModel.images!.first.image}",
+                  cache: true,
+                  fit: BoxFit.contain,
+                  height: double.infinity,
+                )),
+          ),
+          Expanded(
+            flex: 3,
+            child: Padding(
+              padding: translateData(
+                  const EdgeInsets.only(right: 12, bottom: 5),
+                  const EdgeInsets.only(left: 12, bottom: 5)),
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      width: 160,
+                      child: Text(
+                        translateData(
+                            favoritesModel.nameAr, favoritesModel.name),
+                        style: Theme.of(context)
+                            .textTheme
+                            .titleSmall!
+                            .copyWith(fontWeight: FontWeight.bold),
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
-                  ),
-                  SizedBox(
-                    width: 150,
-                    child: Text(
-                      translateData(favoritesModel.descriptionAr,
-                          favoritesModel.description),
-                      style: Theme.of(context).textTheme.titleSmall,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
+                    SizedBox(
+                      width: 150,
+                      child: Text(
+                        translateData(favoritesModel.descriptionAr,
+                            favoritesModel.description),
+                        style: Theme.of(context).textTheme.titleSmall,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.all(4),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        border: Border.all(color: AppColor.grey)),
-                    child: Text(
-                      "\$${favoritesModel.price}",
-                      style: Theme.of(context).textTheme.titleMedium,
-                    ),
-                  )
-                ]),
+                    Container(
+                      padding: const EdgeInsets.all(4),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          border: Border.all(color: AppColor.grey)),
+                      child: Text("\$${favoritesModel.price}",
+                          style: Theme.of(context)
+                              .textTheme
+                              .labelMedium!
+                              .copyWith(fontWeight: FontWeight.bold)),
+                    )
+                  ]),
+            ),
           ),
           const Spacer(),
           CustomIconButton(

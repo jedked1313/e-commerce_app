@@ -54,7 +54,7 @@ class Arabic extends Translations {
           "no_worries": "لا تقلق, سوف نرسل لك تعليمات إعادة تعيين كلمة المرور",
           "confirm_email": "تأكيد البريد الإلكتروني",
           "please_enter_digits":
-              "الرجاء إدخال الرمز المكون من 6 ارقام المرسل الى",
+              "الرجاء إدخال الرمز المكون من 5 ارقام المرسل الى",
           "cant_be_empty": "هذا الحقل لا يمكن ان يكون فارغا",
           "invalid_username": "إسم مستخدم غير صالح",
           "invalid_email": "بريد إلكروني غير صالح",
@@ -84,7 +84,7 @@ class Arabic extends Translations {
           // Bottom Navigation Bar
           "home": "الرئيسية",
           "cart": "السلة",
-          "favorites": "المفضلة",
+          "notifications": "الاشعارات",
           "profile": "الملف الشخصي",
 
           // Buttons

@@ -104,7 +104,7 @@ class HomeGridItems extends GetView<HomeController> {
                 text: "\$${itemsModel.price} ",
                 style: Theme.of(context)
                     .textTheme
-                    .titleLarge!
+                    .titleMedium!
                     .copyWith(fontWeight: FontWeight.bold),
                 children: [
               TextSpan(

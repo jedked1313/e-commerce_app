@@ -22,6 +22,7 @@ class VerifyCode extends StatelessWidget {
           child: HandlingDataIcons(
             isAuthRequest: true,
             statusRequests: controller.statusRequests,
+            tryAgain: () => controller.tryAgain(),
             defaultWidget: ListView(
               shrinkWrap: true,
               padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 15),
@@ -54,7 +55,7 @@ class VerifyCode extends StatelessWidget {
                   child: CustomText(
                       titleOne: "didnt_receive".tr,
                       titleTwo: "send_again".tr,
-                      onTap: () {}),
+                      onTap: () => controller.resendCode()),
                 ),
                 CustomDivider(text: "back_to_login".tr),
                 Container(
