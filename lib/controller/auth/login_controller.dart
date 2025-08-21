@@ -51,6 +51,11 @@ class LoginController extends GetxController {
     Get.offNamed(AppRoute.signUp);
   }
 
+  tryAgain() {
+    statusRequests = StatusRequests.failure;
+    update();
+  }
+
   @override
   void onInit() {
     super.onInit();

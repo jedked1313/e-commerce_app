@@ -12,15 +12,14 @@ confirmationEmailDialog(String email) {
       content: "please_confirm".tr,
       buttonTitle: "ok".tr,
       onConfirm: () {
-        Get.toNamed(AppRoute.confirmEmail,
-            arguments: {"user_email": email});
+        Get.toNamed(AppRoute.confirmEmail, arguments: {"user_email": email});
       }));
 }
 
 incorrectEmailDialog() {
   Get.dialog(CustomDialog(
-      icon: Icons.warning_rounded,
-      iconColor: Colors.yellow,
+      icon: Icons.warning_amber_rounded,
+      iconColor: Colors.red,
       title: "warning".tr,
       content: "incorrect_email".tr,
       buttonTitle: "ok".tr,

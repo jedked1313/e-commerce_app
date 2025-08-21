@@ -15,7 +15,7 @@ class HomeGridView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    FavoritesController controllerFav = Get.put(FavoritesController());
+    FavoritesController favoritesController = Get.put(FavoritesController());
     return GetBuilder<HomeController>(
       builder: (controller) => GridView.builder(
           shrinkWrap: true,
@@ -26,7 +26,7 @@ class HomeGridView extends StatelessWidget {
               childAspectRatio: Get.width / (Get.height / 1.4),
               crossAxisCount: 2),
           itemBuilder: (context, index) {
-            controllerFav.isFavorite[controller.items[index]['id']] =
+            favoritesController.isFavorite[controller.items[index]['id']] =
                 controller.items[index]['isFavorite'];
             return HomeGridItems(
               itemsModel: ItemsModel.fromJson(controller.items[index]),

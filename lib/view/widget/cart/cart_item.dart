@@ -1,14 +1,20 @@
+import 'package:e_commerce/controller/cart_controller.dart';
+import 'package:e_commerce/core/constant/apilinks.dart';
 import 'package:e_commerce/core/constant/color.dart';
-import 'package:e_commerce/core/constant/imageassets.dart';
+import 'package:e_commerce/data/model/cartmodel.dart';
 import 'package:e_commerce/view/widget/customiconbutton.dart';
+import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CartItem extends StatelessWidget {
-  const CartItem({super.key});
+  const CartItem({required this.cartModel, super.key, required this.index});
+  final CartModel cartModel;
+  final int index;
 
   @override
   Widget build(BuildContext context) {
+    final CartController controller = Get.find<CartController>();
     return Container(
       padding: const EdgeInsets.all(5),
       child: Container(
@@ -25,8 +31,9 @@ class CartItem extends StatelessWidget {
                 child: Card(
                     elevation: 0,
                     color: AppColor.grey.shade200,
-                    child: Image.asset(
-                      AppImageAsset.apple,
+                    child: ExtendedImage.network(
+                      "${ApiLinks.root}${cartModel.items?.singleImage?.image}",
+                      cache: true,
                       height: Get.height * 0.15,
                     ))),
             const SizedBox(width: 10),
@@ -37,12 +44,14 @@ class CartItem extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Row(
+                      Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("Test Product"),
+                          Text(cartModel.items!.name ?? "No Name"),
                           CustomIconButton(
-                            icon: Icon(Icons.cancel_outlined),
+                            onPressed: () =>
+                                controller.removeItemFromCart(index),
+                            icon: const Icon(Icons.cancel_outlined),
                             padding: 0,
                             color: AppColor.white,
                           )
@@ -51,40 +60,57 @@ class CartItem extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("\$100",
-                              style: Theme.of(context).textTheme.titleMedium),
+                          Text("\$${cartModel.items!.price.toString()}",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .titleSmall!
+                                  .copyWith(fontWeight: FontWeight.bold)),
                           Row(
                             children: [
-                              Container(
-                                decoration: BoxDecoration(
-                                    border: Border.all(
-                                        color: AppColor.grey, width: 1),
-                                    borderRadius: BorderRadius.circular(15)),
-                                child: const CustomIconButton(
-                                  icon: Icon(Icons.remove),
-                                  padding: 0,
-                                  color: AppColor.white,
+                              CustomIconButton(
+                                onPressed: () {
+                                  controller.decreaseQuantity(index);
+                                },
+                                icon: Container(
+                                    padding: const EdgeInsets.all(8),
+                                    decoration: BoxDecoration(
+                                        border: Border.all(
+                                            color: AppColor.grey, width: 1),
+                                        borderRadius:
+                                            BorderRadius.circular(15)),
+                                    child: const Icon(Icons.remove)),
+                                padding: 0,
+                                color: AppColor.white,
+                              ),
+                              const SizedBox(width: 10),
+                              GetBuilder<CartController>(
+                                builder: (controller) => Text(
+                                  cartModel.quantity.toString(),
+                                  style:
+                                      Theme.of(context).textTheme.titleMedium,
                                 ),
                               ),
                               const SizedBox(width: 10),
-                              Text(
-                                "1",
-                                style: Theme.of(context).textTheme.titleMedium,
-                              ),
-                              const SizedBox(width: 10),
-                              Container(
-                                decoration: BoxDecoration(
-                                    border: Border.all(
-                                        color: AppColor.primaryColor, width: 1),
-                                    borderRadius: BorderRadius.circular(15)),
-                                child: const CustomIconButton(
-                                  icon: Icon(
+                              CustomIconButton(
+                                onPressed: () {
+                                  controller.increaseQuantity(
+                                    index,
+                                  );
+                                },
+                                icon: Container(
+                                  padding: const EdgeInsets.all(8),
+                                  decoration: BoxDecoration(
+                                      border: Border.all(
+                                          color: AppColor.primaryColor,
+                                          width: 1),
+                                      borderRadius: BorderRadius.circular(15)),
+                                  child: const Icon(
                                     Icons.add,
                                     color: AppColor.primaryColor,
                                   ),
-                                  padding: 0,
-                                  color: AppColor.white,
                                 ),
+                                padding: 0,
+                                color: AppColor.white,
                               ),
                             ],
                           )

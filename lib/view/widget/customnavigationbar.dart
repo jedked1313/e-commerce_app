@@ -27,11 +27,11 @@ class CustomNavigationBar extends StatelessWidget {
             label: "home".tr,
           ),
           BottomNavigationBarItem(
-              icon: const Icon(CupertinoIcons.cart), label: "cart".tr),
-          BottomNavigationBarItem(
               icon: const Icon(CupertinoIcons.bell), label: "notifications".tr),
           BottomNavigationBarItem(
-              icon: const Icon(CupertinoIcons.person), label: "profile".tr)
+              icon: const Icon(CupertinoIcons.person), label: "profile".tr),
+          BottomNavigationBarItem(
+              icon: const Icon(CupertinoIcons.settings), label: "settings".tr),
         ],
       ),
     );

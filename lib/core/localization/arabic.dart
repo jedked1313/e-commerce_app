@@ -77,13 +77,13 @@ class Arabic extends Translations {
           "hot_sales": "أخر العروض",
 
           // ---------- Item Details ---------- //
-          "add_cart" : "اضف الى السلة",
-          "read_more" : " اقرأ المزيد \n",
+          "add_cart": "اضف الى السلة",
+          "read_more": " اقرأ المزيد \n",
 
           // ---------- Widgets ---------- //
           // Bottom Navigation Bar
           "home": "الرئيسية",
-          "cart": "السلة",
+          "settings": "الإعدادات",
           "notifications": "الاشعارات",
           "profile": "الملف الشخصي",
 
@@ -109,6 +109,9 @@ class Arabic extends Translations {
           "please_confirm":
               "رجاء قم بتأكيد بريدك الإلكتروني \n بعدها يمكنك المتابعه",
           "email_doesn't": "هذا البريد غير موجود !",
+
+          // Screen Titles
+          "cart": "السلة",
         }
       };
 }

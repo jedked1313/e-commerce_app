@@ -23,7 +23,8 @@ class Home extends StatelessWidget {
                 shrinkWrap: true,
                 children: [
                   Container(
-                    padding: const EdgeInsets.all(15),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
                     decoration: const BoxDecoration(
                         color: AppColor.white,
                         borderRadius: BorderRadius.only(
@@ -47,7 +48,8 @@ class Home extends StatelessWidget {
                   ),
                   Container(
                     margin: const EdgeInsets.only(top: 12),
-                    padding: const EdgeInsets.all(15),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
                     decoration: const BoxDecoration(
                         color: AppColor.white,
                         borderRadius: BorderRadius.only(

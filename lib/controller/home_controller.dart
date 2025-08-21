@@ -58,8 +58,8 @@ class HomeController extends GetxController {
     update();
   }
 
-  goToSettings() {
-    Get.toNamed(AppRoute.settings);
+  goToCart() {
+    Get.toNamed(AppRoute.cart);
   }
 
   @override

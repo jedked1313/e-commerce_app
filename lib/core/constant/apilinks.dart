@@ -35,6 +35,6 @@ class ApiLinks {
   static const String cart = "$server/cart";
   static const String addToCart = "$server/cart/add";
   static const String removeFromCart = "$server/cart/remove";
-  static const String increaseAmount = "$server/cart/increase_amount";
-  static const String decreaseAmount = "$server/cart/decrease_amount";
+  static const String increaseAmount = "$server/cart/increase";
+  static const String decreaseAmount = "$server/cart/decrease";
 }

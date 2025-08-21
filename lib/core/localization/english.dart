@@ -82,7 +82,7 @@ class English extends Translations {
           // ---------- Widgets ---------- //
           // Bottom Navigation Bar
           "home": "Home",
-          "cart": "Cart",
+          "settings": "Settings",
           "notifications": "Notifications",
           "profile": "Profile",
 
@@ -108,6 +108,9 @@ class English extends Translations {
           "please_confirm":
               "Please confirm your email, \n Then you can continue.",
           "email_doesn't": "This Email doesn't exist !",
+
+          // Screen Titles
+          "cart": "Cart",
         }
       };
 }

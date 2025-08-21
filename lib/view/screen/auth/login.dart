@@ -24,6 +24,9 @@ class Login extends StatelessWidget {
       floatingActionButton: const CustomFloatingButton(),
       body: GetBuilder<LoginController>(
         builder: (controller) => HandlingDataIcons(
+          tryAgain: () {
+            controller.tryAgain();
+          },
           isAuthRequest: true,
           statusRequests: controller.statusRequests,
           defaultWidget: Form(

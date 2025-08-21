@@ -53,10 +53,10 @@ class CustomAppBar extends GetView<FavoritesController> {
           padding: const EdgeInsets.symmetric(horizontal: 14.0),
           child: CustomIconButton(
               onPressed: () {
-                homeController.goToSettings();
+                homeController.goToCart();
               },
               icon: const Icon(
-                CupertinoIcons.settings,
+                CupertinoIcons.cart,
                 color: AppColor.black,
               )),
         )

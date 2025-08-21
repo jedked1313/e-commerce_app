@@ -8,9 +8,9 @@ class Settings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SettingsController controller = Get.put(SettingsController());
-    return Scaffold(
-      appBar: AppBar(),
-      body: ListView.separated(
+    return Container(
+      color: Colors.white,
+      child: ListView.separated(
         padding: const EdgeInsets.all(12),
         itemBuilder: (BuildContext context, int index) => ListTile(
           title: Text(

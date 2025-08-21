@@ -1,3 +1,4 @@
+import 'package:e_commerce/controller/cart_controller.dart';
 import 'package:e_commerce/controller/itemdetails_controller.dart';
 import 'package:e_commerce/core/constant/color.dart';
 import 'package:e_commerce/core/functions/translatedata.dart';
@@ -15,7 +16,10 @@ class ItemDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(ItemDetailsController());
+    ItemDetailsController itemDetailsController =
+        Get.put(ItemDetailsController());
+    Get.lazyPut(() =>
+        CartController()); // Initiaize CartController after clicking add to cart
     return Scaffold(
       backgroundColor: AppColor.ligthGrey,
       floatingActionButtonLocation:
@@ -23,7 +27,12 @@ class ItemDetails extends StatelessWidget {
       floatingActionButton: Container(
           width: double.infinity,
           margin: const EdgeInsets.all(15),
-          child: CustomButton(text: "add_cart".tr, onPressed: () {})),
+          child: CustomButton(
+              text: "add_cart".tr,
+              onPressed: () {
+                Get.find<CartController>()
+                    .addToCart(itemDetailsController.itemsModel.id.toString());
+              })),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         actions: const [
