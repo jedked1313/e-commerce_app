@@ -5,6 +5,17 @@ plugins {
     id("dev.flutter.flutter-gradle-plugin")
 }
 
+def localProperties = new Properties()
+localProperties.load(new FileInputStream(rootProject.file("local.properties")))
+def mapsApiKey = localProperties.getProperty("MAPS_API_KEY")
+
+android {
+    defaultConfig {
+        manifestPlaceholders = [ mapsApiKey: mapsApiKey ]
+    }
+}
+
+
 android {
     namespace = "com.example.e_commerce"
     compileSdk = flutter.compileSdkVersion

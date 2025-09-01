@@ -9,7 +9,7 @@
         android:label="e_commerce"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
-        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyAn6Bm3B2t412yWYjfaG97WY2TTNWxRXtk"/>
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="${mapsApiKey}"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"
