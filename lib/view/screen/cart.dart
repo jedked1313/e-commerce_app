@@ -15,10 +15,18 @@ class Cart extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(CartController());
     return Scaffold(
-      appBar: AppBar(
-        title: Text("cart".tr),
-        backgroundColor: Colors.white,
+      floatingActionButton: Container(
+        margin: EdgeInsets.only(bottom: 10),
+        child: GetBuilder<CartController>(
+          builder: (controller) => CustomButton(
+            horizontalPadding: 50,
+            text: "Checkout for  \$${controller.totalPrice}",
+            onPressed: () {},
+          ),
+        ),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      appBar: AppBar(title: Text("cart".tr), backgroundColor: Colors.white),
       body: GetBuilder<CartController>(
         builder: (controller) => HandlingDataIcons(
           statusRequests: controller.statusRequests,
@@ -26,7 +34,7 @@ class Cart extends StatelessWidget {
           defaultWidget: Container(
             color: Colors.white,
             child: ListView(
-              padding: const EdgeInsets.only(left: 8, right: 8, bottom: 35),
+              padding: const EdgeInsets.only(left: 8, right: 8, bottom: 100),
               children: [
                 ListView.builder(
                   physics: const ScrollPhysics(),
@@ -34,35 +42,36 @@ class Cart extends StatelessWidget {
                   itemCount: controller.cartItems.length,
                   itemBuilder: (BuildContext context, int index) {
                     return CartItem(
-                        cartModel: controller.cartItems[index], index: index);
+                      cartModel: controller.cartItems[index],
+                      index: index,
+                    );
                   },
                 ),
-                const PromoCode(
-                  promoCode: "S3JMA7",
-                ),
+                PromoCode(),
                 Column(
+                  spacing: 10,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const PricingItem(title: "Delivery Fee", value: "\$20"),
-                    const SizedBox(height: 10),
-                    const PricingItem(title: "Discount", value: "%20"),
-                    const SizedBox(height: 10),
                     PricingItem(
-                        title: "Total",
-                        value:
-                            "\$${controller.calculateTotalPrice().toString()}"),
+                      title: "Delivery Fee",
+                      value: "\$${controller.shippingFees}",
+                    ),
+                    PricingItem(
+                      title: "Discount",
+                      value: "%${controller.discount}",
+                    ),
+                    PricingItem(
+                      title: "Subtotal",
+                      value: "\$${controller.beforeDiscountPrice}",
+                    ),
+                    PricingItem(
+                      title: "Total",
+                      value: "\$${controller.totalPrice}",
+                    ),
                   ],
                 ),
                 const SizedBox(height: 10),
-                Divider(
-                  color: AppColor.grey.shade300,
-                  thickness: 1,
-                ),
-                const SizedBox(height: 10),
-                CustomButton(
-                    text:
-                        "Checkout for  \$${controller.calculateTotalPrice().toString()}",
-                    onPressed: () {})
+                Divider(color: AppColor.grey.shade300, thickness: 1),
               ],
             ),
           ),

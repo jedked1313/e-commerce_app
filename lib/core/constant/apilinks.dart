@@ -39,6 +39,7 @@ class ApiLinks {
   static const String removeFromCart = "$server/cart/remove";
   static const String increaseAmount = "$server/cart/increase";
   static const String decreaseAmount = "$server/cart/decrease";
+  static const String checkCoupon = "$server/cart/check_coupon";
 
   // =============== Address =============== //
   static const String address = "$server/address";

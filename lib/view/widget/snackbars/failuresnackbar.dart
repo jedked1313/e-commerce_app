@@ -7,10 +7,7 @@ failureSnackbar(String title, String text) {
     title,
     text,
     backgroundColor: Colors.redAccent.withValues(alpha: 0.1),
-    icon: const Icon(
-      CupertinoIcons.check_mark_circled,
-      color: Colors.red,
-    ),
+    icon: const Icon(CupertinoIcons.xmark_circle, color: Colors.red),
     colorText: Colors.red,
   );
 }
