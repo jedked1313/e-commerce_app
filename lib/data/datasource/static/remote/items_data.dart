@@ -24,4 +24,10 @@ class ItemsData {
         HttpMethods.get);
     return response.fold((l) => l, (r) => r);
   }
+
+  searchResult(String? query) async {
+    var response = await crud.requestData(
+        ApiLinks.itemsSearch, {"query": query}, HttpMethods.post);
+    return response.fold((l) => l, (r) => r);
+  }
 }

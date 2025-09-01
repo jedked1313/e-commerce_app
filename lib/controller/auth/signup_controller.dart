@@ -1,5 +1,5 @@
 import 'package:e_commerce/core/class/statusrequests.dart';
-import 'package:e_commerce/core/functions/handlingdata_controller.dart';
+import 'package:e_commerce/core/functions/handlingdata.dart';
 import 'package:e_commerce/data/datasource/static/remote/auth/signup.dart';
 import 'package:e_commerce/view/widget/dialogs/auth/signupdialogs.dart';
 import 'package:flutter/material.dart';

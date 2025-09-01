@@ -1,6 +1,6 @@
 import 'package:e_commerce/controller/onboarding_controller.dart';
 import 'package:e_commerce/core/functions/translatedata.dart';
-import 'package:e_commerce/data/datasource/static/static.dart';
+import 'package:e_commerce/data/datasource/static/onboardinglist.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

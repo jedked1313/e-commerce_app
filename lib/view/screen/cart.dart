@@ -26,7 +26,7 @@ class Cart extends StatelessWidget {
           defaultWidget: Container(
             color: Colors.white,
             child: ListView(
-              padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 8),
+              padding: const EdgeInsets.only(left: 8, right: 8, bottom: 35),
               children: [
                 ListView.builder(
                   physics: const ScrollPhysics(),
@@ -34,8 +34,7 @@ class Cart extends StatelessWidget {
                   itemCount: controller.cartItems.length,
                   itemBuilder: (BuildContext context, int index) {
                     return CartItem(
-                        cartModel:
-                            controller.cartItems[index], index: index);
+                        cartModel: controller.cartItems[index], index: index);
                   },
                 ),
                 const PromoCode(

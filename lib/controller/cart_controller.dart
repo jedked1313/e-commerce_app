@@ -1,5 +1,6 @@
 import 'package:e_commerce/core/class/statusrequests.dart';
-import 'package:e_commerce/core/functions/handlingdata_controller.dart';
+import 'package:e_commerce/core/constant/color.dart';
+import 'package:e_commerce/core/functions/handlingdata.dart';
 import 'package:e_commerce/data/datasource/static/remote/cart_data.dart';
 import 'package:e_commerce/data/model/cartmodel.dart';
 import 'package:e_commerce/view/widget/dialogs/customdialog.dart';
@@ -27,17 +28,21 @@ class CartController extends GetxController {
     statusRequests = handlingData(response);
     if (StatusRequests.success == statusRequests) {
       cartItems.addAll(
-      (response['data'] as List)
-          .map((e) => CartModel.fromJson(e))
-          .toList(),
-    );
+        (response['data'] as List).map((e) => CartModel.fromJson(e)).toList(),
+      );
     }
     update();
   }
 
   addToCart(String itemId) async {
     await cartData.addToCart(itemId);
-    Get.snackbar("Successeded", "Item addded to cart successfully");
+    Get.snackbar("Successeded", "Item addded to cart successfully",
+        backgroundColor: AppColor.primaryColor.withValues(alpha: 0.1),
+        icon: const Icon(
+          CupertinoIcons.check_mark_circled,
+          color: AppColor.primaryColor,
+        ),
+        colorText: AppColor.primaryColor);
   }
 
   // Increase Item Quantity on Cart
@@ -57,7 +62,13 @@ class CartController extends GetxController {
       update();
     } else {
       Get.snackbar("Wrong", "Quantity cannot be less than 1",
-          backgroundColor: Colors.redAccent);
+          snackPosition: SnackPosition.BOTTOM,
+          backgroundColor: Colors.red.shade50,
+          icon: const Icon(
+            CupertinoIcons.question_circle,
+            color: Colors.red,
+          ),
+          colorText: Colors.red);
     }
   }
 
@@ -72,10 +83,17 @@ class CartController extends GetxController {
       buttonTitle: 'Yes',
       onCancel: () => Get.back(),
       onConfirm: () async {
+        Get.back();
         await cartData.removeItemFromCart(item.itemId.toString());
         cartItems.removeAt(index); // remove directly by index
-        Get.back();
-        Get.snackbar("Succeeded", "Item removed from cart successfully");
+
+        Get.snackbar("Succeeded", "Item removed from cart successfully",
+            backgroundColor: AppColor.primaryColor.withValues(alpha: 0.1),
+            icon: const Icon(
+              CupertinoIcons.check_mark_circled,
+              color: AppColor.primaryColor,
+            ),
+            colorText: AppColor.primaryColor);
         update();
       },
     ));

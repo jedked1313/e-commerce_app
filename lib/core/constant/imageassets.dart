@@ -29,9 +29,11 @@ class AppImageAsset {
   // Home
   static const String banner = "$rootImage/discount-banner.png";
 
-  static const List itemImages = [
-    "$rootImage/onboarding-1.png",
-    "$rootImage/onboarding-2.png",
-    "$rootImage/onboarding-3.png",
-  ];
+  // Profile
+  static const String profile = "$rootImage/profile.png";
+  static const String address = "$rootImage/profile_address.svg";
+  static const String peronalInfo = "$rootImage/profile_personal.svg";
+  static const String orders = "$rootImage/profile_orders.svg";
+  static const String ordersHistory = "$rootImage/profile_orders_history.svg";
+  static const String changePassword = "$rootImage/profile_change_password.svg";
 }

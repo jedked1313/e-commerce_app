@@ -1,6 +1,6 @@
 import 'package:e_commerce/core/constant/routes.dart';
 import 'package:e_commerce/core/services/services.dart';
-import 'package:e_commerce/data/datasource/static/static.dart';
+import 'package:e_commerce/data/datasource/static/onboardinglist.dart';
 import 'package:get/get.dart';
 
 class OnboardingController extends GetxController {

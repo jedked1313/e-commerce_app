@@ -16,6 +16,7 @@ class ApiLinks {
   static const String verifyCode = "$server/auth/verify_code";
   static const String resetPassword = "$server/auth/reset_password";
   static const String sendCodeAgain = "$server/auth/send_verifycode";
+  static const String logout = "$server/auth/logout";
 
   // =============== Home =============== //
   static const String home = "$server/home";
@@ -26,6 +27,7 @@ class ApiLinks {
 
   // =============== Items =============== //
   static const String items = "$server/items";
+  static const String itemsSearch = "$server/items/search";
 
   // =============== Favorites =============== //
   static const String favorites = "$server/favorites";
@@ -37,4 +39,11 @@ class ApiLinks {
   static const String removeFromCart = "$server/cart/remove";
   static const String increaseAmount = "$server/cart/increase";
   static const String decreaseAmount = "$server/cart/decrease";
+
+  // =============== Address =============== //
+  static const String address = "$server/address";
+  static const String newAddress = "$server/address/add";
+  static const String showAddress = "$server/address/show";
+  static const String updateAddress = "$server/address/update";
+  static const String deleteAddress = "$server/address/delete";
 }

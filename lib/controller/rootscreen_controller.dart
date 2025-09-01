@@ -1,5 +1,6 @@
 import 'package:e_commerce/view/screen/home.dart';
 import 'package:e_commerce/view/screen/notifications.dart';
+import 'package:e_commerce/view/screen/profile.dart';
 import 'package:e_commerce/view/screen/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -10,7 +11,7 @@ class RootScreenController extends GetxController {
   List<Widget> screens = [
     const Home(),
     const Notifications(),
-    const Center(child: Text("Profile")),
+    const Profile(),
     const Settings(),
   ];
 

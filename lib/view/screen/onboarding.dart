@@ -1,5 +1,5 @@
 import 'package:e_commerce/controller/onboarding_controller.dart';
-import 'package:e_commerce/data/datasource/static/static.dart';
+import 'package:e_commerce/data/datasource/static/onboardinglist.dart';
 import 'package:e_commerce/view/widget/custombutton.dart';
 import 'package:e_commerce/view/widget/onboarding/customslider.dart';
 import 'package:e_commerce/view/widget/onboarding/dotcontroller.dart';

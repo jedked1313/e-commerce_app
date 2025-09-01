@@ -1,9 +1,11 @@
 import 'package:e_commerce/core/class/statusrequests.dart';
 import 'package:e_commerce/core/constant/routes.dart';
-import 'package:e_commerce/core/functions/handlingdata_controller.dart';
+import 'package:e_commerce/core/functions/handlingdata.dart';
 import 'package:e_commerce/core/services/services.dart';
 import 'package:e_commerce/data/datasource/static/remote/home_data.dart';
 import 'package:e_commerce/data/model/itemsmodel.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
@@ -12,6 +14,7 @@ class HomeController extends GetxController {
   late StatusRequests statusRequests;
   List categories = [];
   List items = [];
+  TextEditingController searchController = TextEditingController();
 
   initialData() {
     getData();
@@ -38,6 +41,25 @@ class HomeController extends GetxController {
     Get.toNamed(AppRoute.items, arguments: {
       "categories": categories,
     });
+  }
+
+  goToSearchResults(String? query) {
+    // Check if search field is empty
+    if (query == null || query.isEmpty) {
+      Get.snackbar("Wrong", "Type somthing to search for it",
+          snackPosition: SnackPosition.BOTTOM,
+          backgroundColor: Colors.red.shade50,
+          icon: const Icon(
+            CupertinoIcons.question_circle,
+            color: Colors.red,
+          ),
+          colorText: Colors.red);
+    } else {
+      Get.toNamed(AppRoute.items, arguments: {
+        "title": "search_results".tr,
+        "query": searchController.text
+      });
+    }
   }
 
   // Go to item details screen

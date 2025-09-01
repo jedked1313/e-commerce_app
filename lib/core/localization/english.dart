@@ -60,7 +60,6 @@ class English extends Translations {
           "cant_be_less": "Can't be less then ",
           "cant_be_larger": "Can't be larger then",
           "characters": "characters",
-          "language": "Language",
           "success_account": "Your account has been created successfully.",
           "success_reset_password":
               "Your Password has been reseted successfully.",
@@ -71,7 +70,7 @@ class English extends Translations {
           "categories": "Categories",
           "hot": "Hot Sales",
           "delivery": "Delivery address",
-          "address": "UK, London",
+          "address": "Riyadh, Saudi Arabia",
           "seeall": "See all",
           "hot_sales": "Hot Sales",
 
@@ -111,6 +110,19 @@ class English extends Translations {
 
           // Screen Titles
           "cart": "Cart",
+          "favorites": "Favorites",
+          "search_results": "Search Results",
+
+          // Settings Screen
+          "language": "Language",
+          "dark_mode": "Dark Mode",
+          "contact": "Contact",
+          "rate_app": "Rate App",
+          "share_app": "Share App",
+          "privacy_policy": "Privacy And Policy",
+          "terms_conditions": "Terms And Conditions",
+          "about": "About",
+          "logout": "Logout",
         }
       };
 }

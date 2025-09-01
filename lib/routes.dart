@@ -1,3 +1,4 @@
+import 'package:e_commerce/view/screen/address/address.dart';
 import 'package:e_commerce/view/screen/cart.dart';
 import 'package:e_commerce/view/screen/categories.dart';
 import 'package:e_commerce/view/screen/favorites.dart';
@@ -47,4 +48,5 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoute.itemDetails, page: () => const ItemDetails()),
   GetPage(name: AppRoute.favorites, page: () => const Favorites()),
   GetPage(name: AppRoute.cart, page: () => const Cart()),
+  GetPage(name: AppRoute.address, page: () => const Address()),
 ];

@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-validInput(String value, min, max, type) {
+validInput(String value, min, max, String type) {
   if (value.isEmpty) {
     return "cant_be_empty".tr;
   }
@@ -10,9 +10,16 @@ validInput(String value, min, max, type) {
       return "invalid_username".tr;
     }
   }
+
   if (type == "email") {
     if (!GetUtils.isEmail(value)) {
       return "invalid_email".tr;
+    }
+  }
+
+  if (type == "phone_number") {
+    if (!GetUtils.isPhoneNumber(value)) {
+      return "invalid_phone_number".tr;
     }
   }
 

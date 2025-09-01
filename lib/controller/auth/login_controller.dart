@@ -1,6 +1,6 @@
 import 'package:e_commerce/core/class/statusrequests.dart';
 import 'package:e_commerce/core/constant/routes.dart';
-import 'package:e_commerce/core/functions/handlingdata_controller.dart';
+import 'package:e_commerce/core/functions/handlingdata.dart';
 import 'package:e_commerce/core/functions/storeuserinfo.dart';
 import 'package:e_commerce/data/datasource/static/remote/auth/login.dart';
 import 'package:e_commerce/view/widget/dialogs/auth/logindialogs.dart';

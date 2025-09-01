@@ -61,7 +61,6 @@ class Arabic extends Translations {
           "cant_be_less": "لايمكن ان يكون اقل من ",
           "cant_be_larger": "لايمكن ان يكون اكثر من",
           "characters": "احرف",
-          "language": "اللغة",
           "success_account": "تم إنشاء حسابك بنجاح.",
           "success_reset_password":
               "تم اعادة تعيين كلمة المرور الخاصة بك بنجاح",
@@ -72,7 +71,7 @@ class Arabic extends Translations {
           "categories": "الفئات",
           "hot": "اخر العروض",
           "delivery": "عنوان التوصيل",
-          "address": "بريطانيا, لندن",
+          "address": "السعودية, الرياض",
           "seeall": "عرض الجميع",
           "hot_sales": "أخر العروض",
 
@@ -112,6 +111,19 @@ class Arabic extends Translations {
 
           // Screen Titles
           "cart": "السلة",
+          "favorites": "المفضلة",
+          "search_results": "نتائج البحث",
+
+          // Settings Screen
+          "language": "اللغة",
+          "dark_mode": "الوضع الليلي",
+          "contact": "تواصل معنا",
+          "rate_app": "قيم التطبيق",
+          "share_app": "مشاركة التطبيق",
+          "privacy_policy": "سياسة الخصوصية",
+          "terms_conditions": "الشروط والأحكام",
+          "about": "عن التطبيق",
+          "logout": "تسجيل الخروج",
         }
       };
 }

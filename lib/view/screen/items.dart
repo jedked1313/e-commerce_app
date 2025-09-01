@@ -7,7 +7,7 @@ import 'package:e_commerce/view/widget/items/itemslistcategories.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class Items extends StatelessWidget {
+class Items extends GetView<ItemsController> {
   const Items({super.key});
 
   @override
@@ -16,15 +16,13 @@ class Items extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColor.ligthGrey,
       appBar: AppBar(
-        title: Text(Get.arguments['categoryName'] ?? "hot_sales".tr),
+        title: Text(controller.getAppBarTitle(Get.arguments ?? "")),
         surfaceTintColor: AppColor.white,
         backgroundColor: AppColor.white,
       ),
       body: GetBuilder<ItemsController>(
         builder: (controller) => HandlingDataIcons(
-            tryAgain: () => Get.arguments != null
-                ? controller.getItemsCategory(Get.arguments['categoryId'])
-                : controller.getDiscountedItems(),
+            tryAgain: () => controller.tryAgain(Get.arguments ?? {}),
             statusRequests: controller.statusRequests,
             defaultWidget: Column(children: [
               Container(
@@ -41,9 +39,12 @@ class Items extends StatelessWidget {
                         textAlign: TextAlign.center,
                         icon: Icons.search,
                         hint: "search".tr,
-                        controller: TextEditingController(),
+                        controller: controller.searchController,
+                        onFieldSubmitted: (String? query) {
+                          controller.searchForItems(query);
+                        },
                         valid: (val) {
-                          return;
+                          return null;
                         }),
                     controller.categories.isEmpty
                         ? const SizedBox.shrink() // From discounted items

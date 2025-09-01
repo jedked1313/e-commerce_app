@@ -36,7 +36,10 @@ class Home extends StatelessWidget {
                             textAlign: TextAlign.center,
                             icon: Icons.search,
                             hint: "search".tr,
-                            controller: TextEditingController(),
+                            controller: controller.searchController,
+                            onFieldSubmitted: (String? query) {
+                              controller.goToSearchResults(query);
+                            },
                             valid: (val) {
                               return;
                             }),

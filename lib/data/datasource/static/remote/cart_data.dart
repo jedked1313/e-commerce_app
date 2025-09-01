@@ -1,11 +1,14 @@
 import 'package:e_commerce/core/class/crud.dart';
 import 'package:e_commerce/core/class/httpmethods.dart';
 import 'package:e_commerce/core/constant/apilinks.dart';
-import 'package:e_commerce/data/datasource/static/static.dart';
+import 'package:e_commerce/core/services/services.dart';
+import 'package:get/get.dart';
 
 class CartData {
   CartData(this.crud);
   Crud crud;
+  MyServices myServices = Get.find();
+
 
   getCartData() async {
     var response = await crud.requestData(

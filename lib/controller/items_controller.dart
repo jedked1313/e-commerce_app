@@ -1,8 +1,9 @@
 import 'package:e_commerce/core/class/statusrequests.dart';
 import 'package:e_commerce/core/constant/routes.dart';
-import 'package:e_commerce/core/functions/handlingdata_controller.dart';
+import 'package:e_commerce/core/functions/handlingdata.dart';
 import 'package:e_commerce/data/datasource/static/remote/items_data.dart';
 import 'package:e_commerce/data/model/itemsmodel.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ItemsController extends GetxController {
@@ -12,17 +13,57 @@ class ItemsController extends GetxController {
   List items = [];
   int? selectedCategory;
   late String categoryId;
+  TextEditingController searchController = TextEditingController();
 
-  intianlData() {
-    // If there is selected category (from categories screen or home categories list)
-    if (Get.arguments['categoryId'] != null) {
-      categories = Get.arguments['categories'];
-      selectedCategory = Get.arguments['selectedCategory'];
-      categoryId = Get.arguments['categoryId'];
+  @override
+  void onInit() {
+    super.onInit();
+    initializeData();
+  }
+
+  @override
+  void dispose() {
+    searchController.dispose();
+    super.dispose();
+  }
+
+  void initializeData() {
+    final args = Get.arguments ?? {};
+    _loadItemsFromArgs(args, withSelectedCategory: true);
+  }
+
+  // Shared logic for category/search/discounted handling
+  void _loadItemsFromArgs(Map<String, dynamic> args,
+      {bool withSelectedCategory = false}) {
+    final categoryId = args['categoryId'];
+    final query = args['query'];
+
+    if (categoryId != null) {
+      // Load items based on category
+      // if (withSelectedCategory) {
+        categories = args['categories'];
+        selectedCategory = args['selectedCategory'];
+        this.categoryId = categoryId;
+      // }
       getItemsCategory(categoryId);
+    } else if (query != null) {
+      // Load items based on search query
+      searchForItems(query);
     } else {
-      // If there is no selected category (from discounted items)
-      getDiscountedItems();
+      getDiscountedItems(); // Load discounted items by default
+    }
+  }
+
+  searchForItems(String? query) async {
+    statusRequests = StatusRequests.loading;
+    // Refresh UI and Display loading
+    update();
+    var response = await itemsData.searchResult(query);
+    statusRequests = handlingData(response);
+    if (StatusRequests.success == StatusRequests.success) {
+      items.clear();
+      items.addAll(response["data"]);
+      update();
     }
   }
 
@@ -67,9 +108,19 @@ class ItemsController extends GetxController {
     Get.toNamed(AppRoute.itemDetails, arguments: {"itemsModel": itemsModel});
   }
 
-  @override
-  void onInit() {
-    super.onInit();
-    intianlData();
+  // Determine app bar title based on passed arguments
+  String getAppBarTitle(Map<String, dynamic> args) {
+    if (args['categoryName'] != null) {
+      return args['categoryName'];
+    }
+    if (args['title'] != null) {
+      return args['title'];
+    }
+    return "hot_sales".tr;
+  }
+
+  // Retry loading items based on initial arguments passed (on failure case)
+  tryAgain(args) {
+    _loadItemsFromArgs(args, withSelectedCategory: false);
   }
 }
