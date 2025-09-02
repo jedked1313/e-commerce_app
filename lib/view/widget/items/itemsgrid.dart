@@ -1,6 +1,7 @@
 import 'package:e_commerce/controller/favorites_controller.dart';
 import 'package:e_commerce/controller/items_controller.dart';
 import 'package:e_commerce/core/constant/color.dart';
+import 'package:e_commerce/core/functions/priceafterdiscount.dart';
 import 'package:e_commerce/core/functions/translatedata.dart';
 import 'package:e_commerce/data/model/itemsmodel.dart';
 import 'package:e_commerce/view/widget/customiconbutton.dart';
@@ -19,20 +20,20 @@ class ItemsGrid extends StatelessWidget {
     FavoritesController controllerFav = Get.put(FavoritesController());
     return GetBuilder<ItemsController>(
       builder: (controller) => GridView.builder(
-          padding: const EdgeInsets.only(top: 15),
-          shrinkWrap: true,
-          itemCount: controller.items.length,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisSpacing: 5,
-              childAspectRatio: Get.width / (Get.height / 1.4),
-              crossAxisCount: 2),
-          itemBuilder: (context, index) {
-            controllerFav.isFavorite[controller.items[index]['id']] =
-                controller.items[index]['isFavorite'];
-            return Item(
-              itemsModel: ItemsModel.fromJson(controller.items[index]),
-            );
-          }),
+        padding: const EdgeInsets.only(top: 15),
+        shrinkWrap: true,
+        itemCount: controller.items.length,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisSpacing: 5,
+          childAspectRatio: Get.width / (Get.height / 1.4),
+          crossAxisCount: 2,
+        ),
+        itemBuilder: (context, index) {
+          controllerFav.isFavorite[controller.items[index]['id']] =
+              controller.items[index]['isFavorite'];
+          return Item(itemsModel: ItemsModel.fromJson(controller.items[index]));
+        },
+      ),
     );
   }
 }
@@ -80,12 +81,16 @@ class Item extends GetView<ItemsController> {
                       },
                       icon: controller.isFavorite[itemsModel.id] == 1
                           ? const Icon(
-                              color: Colors.red, CupertinoIcons.heart_fill)
+                              color: Colors.red,
+                              CupertinoIcons.heart_fill,
+                            )
                           : const Icon(
-                              color: AppColor.grey, CupertinoIcons.heart),
+                              color: AppColor.grey,
+                              CupertinoIcons.heart,
+                            ),
                     ),
                   ),
-                )
+                ),
               ],
             ),
           ),
@@ -93,29 +98,31 @@ class Item extends GetView<ItemsController> {
         Text(
           "${translateData(itemsModel.nameAr, itemsModel.name)}",
           overflow: TextOverflow.ellipsis,
-          style: Theme.of(context)
-              .textTheme
-              .titleMedium!
-              .copyWith(fontWeight: FontWeight.bold),
+          style: Theme.of(
+            context,
+          ).textTheme.titleMedium!.copyWith(fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 10),
         RichText(
-            text: TextSpan(
-                text: "\$${itemsModel.price} ",
-                style: Theme.of(context)
-                    .textTheme
-                    .titleLarge!
-                    .copyWith(fontWeight: FontWeight.bold),
-                children: [
+          text: TextSpan(
+            text:
+                "\$${priceAfterDiscount(itemsModel.price, itemsModel.discount)} ",
+            style: Theme.of(
+              context,
+            ).textTheme.titleLarge!.copyWith(fontWeight: FontWeight.bold),
+            children: [
               TextSpan(
                 text: itemsModel.discount! <= 0
                     ? ""
-                    : " \$${itemsModel.discount}\$",
+                    : " \$${itemsModel.price}\$",
                 style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                    fontWeight: FontWeight.w400,
-                    decoration: TextDecoration.lineThrough),
-              )
-            ]))
+                  fontWeight: FontWeight.w400,
+                  decoration: TextDecoration.lineThrough,
+                ),
+              ),
+            ],
+          ),
+        ),
       ],
     );
   }

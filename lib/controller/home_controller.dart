@@ -26,39 +26,47 @@ class HomeController extends GetxController {
   }
 
   // Go to items screen with passing id and name of selected category
-  goToItems(List categories, int selectedCategory, String categoryId,
-      String categoryName) {
-    Get.toNamed(AppRoute.items, arguments: {
-      "categories": categories,
-      "categoryId": categoryId,
-      "categoryName": categoryName,
-      "selectedCategory": selectedCategory
-    });
+  goToItems(
+    List categories,
+    int selectedCategory,
+    String categoryId,
+    String categoryName,
+  ) {
+    Get.toNamed(
+      AppRoute.items,
+      arguments: {
+        "categories": categories,
+        "categoryId": categoryId,
+        "categoryName": categoryName,
+        "selectedCategory": selectedCategory,
+      },
+    );
   }
 
   // Go to items screen without passing selected category (Display categories list only)
   goToDiscountedItems() {
-    Get.toNamed(AppRoute.items, arguments: {
-      "categories": categories,
-    });
+    Get.toNamed(AppRoute.items, arguments: {"categories": categories});
   }
 
   goToSearchResults(String? query) {
     // Check if search field is empty
     if (query == null || query.isEmpty) {
-      Get.snackbar("Wrong", "Type somthing to search for it",
-          snackPosition: SnackPosition.BOTTOM,
-          backgroundColor: Colors.red.shade50,
-          icon: const Icon(
-            CupertinoIcons.question_circle,
-            color: Colors.red,
-          ),
-          colorText: Colors.red);
+      Get.snackbar(
+        "Wrong",
+        "Type somthing to search for it",
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: Colors.red.shade50,
+        icon: const Icon(CupertinoIcons.question_circle, color: Colors.red),
+        colorText: Colors.red,
+      );
     } else {
-      Get.toNamed(AppRoute.items, arguments: {
-        "title": "search_results".tr,
-        "query": searchController.text
-      });
+      Get.toNamed(
+        AppRoute.items,
+        arguments: {
+          "title": "search_results".tr,
+          "query": searchController.text,
+        },
+      );
     }
   }
 

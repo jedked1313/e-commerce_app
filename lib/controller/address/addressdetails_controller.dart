@@ -131,10 +131,10 @@ class AddressDetailsController extends GetxController {
       neighborhood.text = response["data"]["neighborhood"];
       street!.text = response["data"]["street"] ?? "";
       contactPhone.text = response["data"]["contact_phone"];
-      addressName!.text = response["data"]["address_name"] ?? "";
-      building!.text = response["data"]["building"] ?? "";
-      apartment!.text = response["data"]["apartment"] ?? "";
-      postalCode!.text = response["data"]["postal_code"] ?? "";
+      addressName!.text = "${response["data"]["address_name"]}";
+      building!.text = "${response["data"]["building"]}";
+      apartment!.text = "${response["data"]["apartment"]}";
+      postalCode!.text = "${response["data"]["postal_code"]}";
       kGooglePlex = CameraPosition(
         target: LatLng(
           response["data"]["latitude"],
